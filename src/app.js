@@ -52,14 +52,14 @@ app.get('/weather',(req,res)=>{
                 error:err
             })
         }
-        forecast(latitude,longitude,(err,{temperature,feelslike}={})=>{
+        forecast(latitude,longitude,(err,{weatherDescription,temperature,feelslike,isDayTime}={})=>{
             if(err){
                 return res.send({
                     error:err
                 })
             }
             res.send({
-                forecast:"Temperature:"+temperature+" but feelslike "+feelslike,
+                forecast:{weatherDescription,temperature,feelslike,isDayTime},
                 location:location,
                 address:address
             })

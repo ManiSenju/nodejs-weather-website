@@ -32,7 +32,8 @@ weatherForm.addEventListener('submit',(event)=>{
             if(data.error){
                 msgElem.textContent = data.error
             }else{
-                msgElem.textContent = data.location +" " + data.forecast 
+                const {weatherDescription,temperature,feelslike,isDayTime} = data.forecast
+                msgElem.textContent = `Location: ${data.location}. Currently its ${weatherDescription} with a temperature of ${temperature}C but it feels like ${feelslike}C.\n Day Time: ${isDayTime}`
             }
         }
     )
